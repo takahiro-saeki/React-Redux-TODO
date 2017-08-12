@@ -1,0 +1,22 @@
+{
+  "presets": [
+    ["es2015", {
+      "modules": false
+    }],
+    "stage-2",
+    "react",
+    "latest",
+    "flow"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-function-bind",
+    "transform-es2015-modules-commonjs",
+    "transform-class-properties",
+    "transform-flow-strip-types", [
+      "module-resolver", {
+        "root": ["./src/js"]
+      }
+    ]
+  ]
+}
