@@ -4,6 +4,14 @@ export const FooterContainer = styled.footer`
   display: flex;
 `
 
+export const MainLength = styled.div`
+  padding: .5rem;
+  display: flex;
+  font-size: .75rem;
+  color: #CCC;
+  justify-content: center;
+`
+
 export const MenuList = styled.ul`
   list-style: none;
   margin: 0;
@@ -11,6 +19,8 @@ export const MenuList = styled.ul`
   display: flex;
   font-size: .75rem;
   color: #CCC;
+  justify-content: center;
+  margin: 0 auto;
 `
 
 export const MenuListChild = styled.li`

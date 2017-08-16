@@ -39,7 +39,7 @@ class MainField extends Component {
             onKeyDown={data => data.keyCode === 13 ? this.submitText(this.state.input) : false}/>
         </InputField>
         <ListField data={todo.data} />
-        {todo.data.length !== 0 ? <Footer /> : null}
+      {todo.data.length !== 0 ? <Footer len={todo.data.length} /> : null}
       </MainContainer>
     )
   }

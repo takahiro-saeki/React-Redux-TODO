@@ -11,6 +11,9 @@ const todo = (state = defaultParam, action) => {
       const dataMerge = [...state.data, action.data]
       const optimize = dataMerge.map((item, i) => {
         item.id = i + 1
+        if(item.isCheck !== true) {
+          item.isCheck = false
+        }
         return item
       })
       const merge = Object.assign({}, state, {data: optimize})

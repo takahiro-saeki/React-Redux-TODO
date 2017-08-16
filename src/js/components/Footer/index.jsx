@@ -1,10 +1,10 @@
 import React from 'react';
-import {FooterContainer, MenuList, MenuListChild} from './style';
+import {FooterContainer, MenuList, MenuListChild, MainLength} from './style';
 
-const Footer = () => (
+const Footer = ({len}) => (
   <FooterContainer>
+    <MainLength>REMAIN ITEM IS {len}</MainLength>
     <MenuList>
-      <MenuListChild>REMAIN ITEM IS </MenuListChild>
       <MenuListChild>ALL</MenuListChild>
       <MenuListChild>ACTIVE</MenuListChild>
       <MenuListChild>COMPLETED</MenuListChild>
