@@ -1,11 +1,25 @@
 import React from 'react';
 import uuid from 'uuid';
-import {ListContainer, ListChild} from './style';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as actions from 'actions';
+import {ListContainer, ListChild, ListBtn, ListText} from './style';
 
-const ListField = ({data}) => (
+const ListField = ({data, deleteTodo}) => (
   <ListContainer>
-    {data.map((data, i) => <ListChild key={uuid.v4()}>{data.text}</ListChild>)}
+    {data.map((item, i) => (
+      <ListChild key={uuid.v4()}>
+        <ListText>{item.text}</ListText>
+        <ListBtn onClick={() => deleteTodo(item.id)}>×</ListBtn>
+      </ListChild>
+    ))}
   </ListContainer>
 )
 
-export default ListField;
+const mapStateToProps = state => ({todo: state.todo});
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListField);

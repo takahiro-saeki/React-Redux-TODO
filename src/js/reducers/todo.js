@@ -1,4 +1,5 @@
-import { ADD_TODO } from 'constants/actionType';
+import { ADD_TODO, DELETE_TODO } from 'constants/actionType';
+import {compact} from 'lodash/array';
 
 const defaultParam = {
   data: []
@@ -11,6 +12,20 @@ const todo = (state = defaultParam, action) => {
       const optimize = dataMerge.map((item, i) => {
         item.id = i + 1
         return item
+      })
+      const merge = Object.assign({}, state, {data: optimize})
+      return merge;
+    }
+
+    case DELETE_TODO: {
+      const organize = state.data.map(item => {
+        if(action.id !== item.id) {
+          return item;
+        }
+      })
+      const optimize = compact(organize).map((item, i) => {
+        item.id = i + 1
+        return item;
       })
       const merge = Object.assign({}, state, {data: optimize})
       return merge;

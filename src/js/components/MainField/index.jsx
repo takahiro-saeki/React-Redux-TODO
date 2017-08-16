@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 import uuid from 'uuid';
 import * as actions from 'actions';
 import ListField from 'components/ListField';
-import {MainContainer} from './style';
+import Footer from 'components/Footer';
+import {MainContainer, InputField} from './style';
 
 class MainField extends Component {
   constructor(props) {
@@ -29,12 +30,16 @@ class MainField extends Component {
     const {addTodo, todo} = this.props;
     return (
       <MainContainer>
-        <input
-          type="text"
-          value={this.state.input}
-          onChange={e => this.handleChange(e.target.value)}
-          onKeyDown={data => data.keyCode === 13 ? this.submitText(this.state.input) : false}/>
-      <ListField data={todo.data} />
+        <InputField>
+          <input
+            type="text"
+            placeholder="this is a text field."
+            value={this.state.input}
+            onChange={e => this.handleChange(e.target.value)}
+            onKeyDown={data => data.keyCode === 13 ? this.submitText(this.state.input) : false}/>
+        </InputField>
+        <ListField data={todo.data} />
+        {todo.data.length !== 0 ? <Footer /> : null}
       </MainContainer>
     )
   }
