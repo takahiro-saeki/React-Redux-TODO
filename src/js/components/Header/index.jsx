@@ -1,7 +1,8 @@
 import React from 'react';
+import {HeaderContainer} from './style';
 
 const Header = () => (
-  <header>React-Redux TODO APP</header>
+  <HeaderContainer>React-Redux TODO APP</HeaderContainer>
 )
 
 export default Header;

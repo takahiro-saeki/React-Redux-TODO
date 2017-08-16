@@ -7,7 +7,12 @@ const defaultParam = {
 const todo = (state = defaultParam, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      const merge = Object.assign({}, state, action.data)
+      const dataMerge = [...state.data, action.data]
+      const optimize = dataMerge.map((item, i) => {
+        item.id = i + 1
+        return item
+      })
+      const merge = Object.assign({}, state, {data: optimize})
       return merge;
     }
     default:
