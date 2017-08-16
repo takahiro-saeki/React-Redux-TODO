@@ -1,5 +1,20 @@
 {
+  "name": "React-Redux-TODO",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dashboard webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack-dashboard webpack --progress --hide-modules",
+    "tree": "tree -I node_modules",
+    "updates": "npm-check-updates -u -a",
+    "updates-ls": "npm-check-updates"
+  },
+  "author": "takahiro-saeki <hiroooon69@gmail.com>",
+  "license": "MIT",
   "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2017": "^6.24.1",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -35,7 +50,7 @@
     "precss": "^2.0.0",
     "react-hot-loader": "next",
     "style-loader": "^0.18.2",
-    "webpack": "^3.5.3",
+    "webpack": "^3.5.4",
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.7.1"
   }

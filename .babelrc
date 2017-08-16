@@ -1,18 +1,16 @@
 {
   "presets": [
-    ["es2015", {
-      "modules": false
-    }],
-    "stage-2",
+    "es2017",
     "react",
-    "latest",
-    "flow"
+    "flow",
+    ["env", {"modules": false}]
   ],
   "plugins": [
     "react-hot-loader/babel",
     "transform-function-bind",
     "transform-es2015-modules-commonjs",
     "transform-class-properties",
+    "transform-object-rest-spread",
     "transform-flow-strip-types", [
       "module-resolver", {
         "root": ["./src/js"]

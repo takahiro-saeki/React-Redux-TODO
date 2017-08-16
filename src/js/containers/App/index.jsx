@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from 'components/Header';
+import {Container} from './style';
 
 const App = () => (
-  <div>App</div>
+  <Container>
+    <Header />
+  </Container>
 )
 
 export default App;
