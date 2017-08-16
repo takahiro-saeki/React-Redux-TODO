@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO } from 'constants/actionType';
+import { ADD_TODO, DELETE_TODO, CHECK_TODO } from 'constants/actionType';
 import {compact} from 'lodash/array';
 
 const defaultParam = {
@@ -31,6 +31,21 @@ const todo = (state = defaultParam, action) => {
         return item;
       })
       const merge = Object.assign({}, state, {data: optimize})
+      return merge;
+    }
+
+    case CHECK_TODO: {
+      console.log('check todo')
+      const addCheck = state.data.map(item => {
+        if(action.id === item.id) {
+          item.isCheck = action.isCheck
+          return item;
+        } else {
+          return item;
+        }
+      })
+
+      const merge = Object.assign({}, state, {data: addCheck})
       return merge;
     }
     default:

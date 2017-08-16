@@ -1,4 +1,4 @@
-import {ADD_TODO, DELETE_TODO} from 'constants/actionType';
+import {ADD_TODO, DELETE_TODO, CHECK_TODO} from 'constants/actionType';
 
 export const addTodo = todo => ({
   type: ADD_TODO,
@@ -8,4 +8,10 @@ export const addTodo = todo => ({
 export const deleteTodo = id => ({
   type: DELETE_TODO,
   id
+})
+
+export const checkTodo = (id, isCheck) => ({
+  type: CHECK_TODO,
+  id,
+  isCheck
 })
