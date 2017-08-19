@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import todo from './todo';
+import filterFlag from './filterFlag';
 
 const reducers = {
-  todo
+  todo,
+  filterFlag
 }
 const reducer = combineReducers(reducers)
 
