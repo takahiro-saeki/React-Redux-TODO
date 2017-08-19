@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, CHECK_TODO, ACTIVE_TODO } from 'constants/actionType';
+import { ADD_TODO, DELETE_TODO, CHECK_TODO, ACTIVE_TODO, INIT_FETCH} from 'constants/actionType';
 import {compact} from 'lodash/array';
 
 const defaultParam = {
@@ -7,6 +7,10 @@ const defaultParam = {
 
 const todo = (state = defaultParam, action) => {
   switch (action.type) {
+    case INIT_FETCH: {
+      const merge = Object.assign({}, state, {data: action.data})
+      return merge;
+    }
     case ADD_TODO: {
       const dataMerge = [...state.data, action.data]
       const optimize = dataMerge.map((item, i) => {
