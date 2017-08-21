@@ -13,26 +13,38 @@ document.body.style.margin = 0;
 
 configureStore().runSaga;
 
-const ren = elem => {
-  render(
-    <AppContainer>
-    <Provider store={configureStore()}>
-      <Router>
-        <div>
-          <Route exact path="/" component={App}/>
-        </div>
-      </Router>
-    </Provider>
-  </AppContainer>, document.getElementById(elem),);
-};
-
-ren('app');
-
 if (process.env.NODE_ENV === 'development') {
+  const ren = elem => {
+    render(
+      <AppContainer>
+        <Provider store={configureStore()}>
+          <Router>
+            <div>
+              <Route exact path="/" component={App}/>
+            </div>
+          </Router>
+        </Provider>
+      </AppContainer>, document.getElementById(elem));
+  };
+  ren('app');
   if (module.hot) {
     module.hot.accept('./containers/App', () => {
       const NextRootContainer = require('./containers/App').default;
       render(<NextRootContainer />, document.getElementById('app'));
     })
   }
+} else {
+  const ren = elem => {
+    render(
+      <AppContainer>
+        <Provider store={configureStore()}>
+          <Router>
+            <div>
+              <Route exact path="*" component={App}/>
+            </div>
+          </Router>
+        </Provider>
+      </AppContainer>, document.getElementById(elem));
+  };
+  ren('app');
 }
