@@ -38,11 +38,7 @@ if (process.env.NODE_ENV === 'development') {
     render(
       <AppContainer>
         <Provider store={configureStore()}>
-          <Router>
-            <div>
-              <Route exact path="*" component={App}/>
-            </div>
-          </Router>
+          <App />
         </Provider>
       </AppContainer>, document.getElementById(elem));
   };
