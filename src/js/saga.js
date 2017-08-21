@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import fetch from 'isomorphic-fetch';
 import {delay} from 'redux-saga';
 import * as actions from './actions';

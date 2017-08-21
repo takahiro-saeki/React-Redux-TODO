@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
     new HtmlWebpackPlugin({
-      title: 'kobo/PC adult',
+      title: 'React-Redux-TODO',
       template: path.join(__dirname, './src/index.ejs')
     })
   ])
